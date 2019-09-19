@@ -1,10 +1,9 @@
 ﻿using LifeGame.Models;
 using LifeGame.Ocean;
-using Xunit;
 
 namespace UnitTests
 {
-    public class BaseTestClass
+    public class BaseTestClass 
     {
         protected ICellContainer CellContainer;
         protected IOceanViewer OceanViewer;

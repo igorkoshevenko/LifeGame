@@ -223,7 +223,6 @@ namespace LifeGame.Ocean
             var preyNeighborCells = GetPreyNeighborCells(cell);
             return preyNeighborCells.Count != 0 ? preyNeighborCells[_random.Next(0, preyNeighborCells.Count - 1)] : null;
         }
-
         public Cell GetCellAt(int a, int b)
         {
             if (a < 0 || a > MaxRows - 1 || b < 0 || b > MaxColumns - 1)

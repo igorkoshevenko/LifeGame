@@ -64,7 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTestClass.cs" />
-    <Compile Include="CellContainerTests.cs" />
+    <Compile Include="CellContainerNeighborsTest.cs" />
+    <Compile Include="CellContainerSearchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
