@@ -16,7 +16,8 @@ namespace UnitTests
         public void GetCellNeighbors_CoordinatesOfTheCell_ShouldReturnCellNeighbors(int x, int y, int quantityOfNeighbors)
         {
             var cell = new Cell(x, y);
-            Assert.Equal(CellContainer.GetNeighbors(cell).Count, quantityOfNeighbors);
+            var actualQuantityOfEntities = CellContainer.GetNeighbors(cell).Count;
+            Assert.Equal(quantityOfNeighbors, actualQuantityOfEntities);
         }
 
         [Theory]
@@ -26,8 +27,9 @@ namespace UnitTests
         public void GetEmptyCellNeighbors_CoordinatesOfTheCell_ShouldReturnEmptyCellNeighbors(int x, int y)
         {
             var cell = new Cell(x, y);
-            Assert.Equal(CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Cell").ToList().Count,
-                CellContainer.GetEmptyNeighborCells(cell).Count);
+            var expectedResult = CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Cell").ToList().Count;
+            var actualResult = CellContainer.GetEmptyNeighborCells(cell).Count;
+            Assert.Equal(expectedResult, actualResult);
         }
 
         [Theory]
@@ -37,8 +39,9 @@ namespace UnitTests
         public void GetPreyCellNeighbors_CoordinatesOfTheCell_ShouldReturnPreyCellNeighbors(int x, int y)
         {
             var cell = new Cell(x, y);
-            Assert.Equal(CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Prey").ToList().Count,
-                CellContainer.GetPreyNeighborCells(cell).Count);
+            var expectedResult = CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Prey").ToList().Count;
+            var actualResult = CellContainer.GetPreyNeighborCells(cell).Count;
+            Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
@@ -52,22 +55,22 @@ namespace UnitTests
         [InlineData("Prey", Constants.Prey)]
         [InlineData("Predator", Predators)]
         [InlineData("Obstacle", Obstacles)]
-        public void GetQuantityOfEntities_QuantityOfEntities_ShouldInitializeQuantityOfEntitiesInOcean(string typeOfEntity, int quantity)
+        public void GetQuantityOfEntities_QuantityOfEntities_ShouldInitializeQuantityOfEntitiesInOcean(string typeOfEntity, int expectedQuantity)
         {
-            var result = 0;
+            var actualQuantity = 0;
             var oceanField = CellContainer.InitializeField();
 
             for (int i = 0; i < MaxRows; i++)
             {
                 for (int j = 0; j < MaxColumns; j++)
                 {
-                    if (oceanField[i,j].GetType().Name == typeOfEntity)
+                    if (oceanField[i, j].GetType().Name == typeOfEntity)
                     {
-                        result++;
+                        actualQuantity++;
                     }
                 }
             }
-            Assert.Equal(quantity, result);
+            Assert.Equal(expectedQuantity, actualQuantity);
         }
     }
 }
