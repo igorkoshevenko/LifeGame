@@ -13,7 +13,7 @@ namespace UnitTests
         [InlineData(0, 0, 3)]
         [InlineData(1, 1, 8)]
         [InlineData(24, 69, 3)]
-        public void GetCellNeighbors_Coordinate_ShouldReturnCellNeighbors(int x, int y, int quantityOfNeighbors)
+        public void GetCellNeighbors_CoordinatesOfTheCell_ShouldReturnCellNeighbors(int x, int y, int quantityOfNeighbors)
         {
             var cell = new Cell(x, y);
             Assert.Equal(CellContainer.GetNeighbors(cell).Count, quantityOfNeighbors);
@@ -23,7 +23,7 @@ namespace UnitTests
         [InlineData(0, 0)]
         [InlineData(1, 1)]
         [InlineData(24, 69)]
-        public void GetEmptyCellNeighbors_Coordinate_ShouldReturnEmptyCellNeighbors(int x, int y)
+        public void GetEmptyCellNeighbors_CoordinatesOfTheCell_ShouldReturnEmptyCellNeighbors(int x, int y)
         {
             var cell = new Cell(x, y);
             Assert.Equal(CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Cell").ToList().Count,
@@ -34,7 +34,7 @@ namespace UnitTests
         [InlineData(0, 0)]
         [InlineData(1, 1)]
         [InlineData(24, 69)]
-        public void GetPreyCellNeighbors_Coordinate_ShouldReturnPreyCellNeighbors(int x, int y)
+        public void GetPreyCellNeighbors_CoordinatesOfTheCell_ShouldReturnPreyCellNeighbors(int x, int y)
         {
             var cell = new Cell(x, y);
             Assert.Equal(CellContainer.GetNeighbors(cell).Where(c => c.GetType().Name == "Prey").ToList().Count,
@@ -42,7 +42,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void InitializeOcean()
+        public void InitializeOcean_ShouldInitializeOceanField()
         {
             var oceanField = CellContainer.InitializeField();
             Assert.NotNull(oceanField);
@@ -52,7 +52,7 @@ namespace UnitTests
         [InlineData("Prey", Constants.Prey)]
         [InlineData("Predator", Predators)]
         [InlineData("Obstacle", Obstacles)]
-        public void GetQuantityOfEntities_Quantity_CheckQuantityOfEntities(string typeOfEntity, int quantity)
+        public void GetQuantityOfEntities_QuantityOfEntities_ShouldInitializeQuantityOfEntitiesInOcean(string typeOfEntity, int quantity)
         {
             var result = 0;
             var oceanField = CellContainer.InitializeField();

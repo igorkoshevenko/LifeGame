@@ -10,7 +10,7 @@ namespace UnitTests
         [InlineData(0, 0)]
         [InlineData(10, 30)]
         [InlineData(24, 69)]
-        public void GetCell_Coordinates_ShouldReturnCellByCoordinates_Positive(int x, int y)
+        public void GetCellAt_CoordinatesOfTheCell_ShouldReturnCell(int x, int y)
         {
             var cell = CellContainer.GetCellAt(x, y);
             Assert.NotNull(cell);
@@ -23,7 +23,7 @@ namespace UnitTests
         [Theory]
         [InlineData(-1, -1)]
         [InlineData(25, 70)]
-        public void GetCell_Coordinates_ShouldReturnNull_Negative(int x, int y)
+        public void GetCellAt_CoordinatesOfTheCell_ShouldReturnNullCell(int x, int y)
         {
             var cell = CellContainer.GetCellAt(x, y);
             Assert.Null(cell);
@@ -31,7 +31,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNorthCell()
+        public void GetNorthCell_CoordinatesOfTheCell_ShouldReturnNorthCell()
         {
             var cell = new Cell(1, 1);
             var northCell = CellContainer.GetNorthCell(cell);
@@ -40,7 +40,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNullNorthCell()
+        public void GetNorthCell_CoordinatesOfTheCell_ShouldReturnNullNorthCell()
         {
             var cell = new Cell(0, 1);
             var northCell = CellContainer.GetNorthCell(cell);
@@ -49,7 +49,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNorthWestCell()
+        public void GetNorthWestCell_CoordinatesOfTheCell_ShouldReturnNorthWestCell()
         {
             var cell = new Cell(1, 1);
             var northWestCell = CellContainer.GetNorthWestCell(cell);
@@ -58,7 +58,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNullNorthWestCell()
+        public void GetNorthWestCell_CoordinatesOfTheCell_ShouldReturnNullNorthWestCell()
         {
             var cell = new Cell(0, 0);
             var northWestCell = CellContainer.GetNorthWestCell(cell);
@@ -67,7 +67,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNorthEastCell()
+        public void GetNorthEastCell_CoordinatesOfTheCell_ShouldReturnNorthEastCell()
         {
             var cell = new Cell(1, 1);
             var northEastCell = CellContainer.GetNorthEastCell(cell);
@@ -76,7 +76,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void GetCell_Coordinates_ShouldReturnNullNorthEastCell()
+        public void GetNorthWestCell_CoordinatesOfTheCell_ShouldReturnNullNorthEastCell()
         {
             var cell = new Cell(0, 69);
             var northEastCell = CellContainer.GetNorthWestCell(cell);
@@ -86,7 +86,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnSouthCell()
+        public void GetSouthCell_CoordinatesOfTheCell_ShouldReturnSouthCell()
         {
             var cell = new Cell(1, 1);
             var south = CellContainer.GetSouthCell(cell);
@@ -95,7 +95,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnNullSouthCell()
+        public void GetSouthCell_CoordinatesOfTheCell_ShouldReturnNullSouthCell()
         {
             var cell = new Cell(24, 1);
             var southCell = CellContainer.GetSouthCell(cell);
@@ -104,7 +104,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnSouthWestCell()
+        public void GetSouthWestCell_CoordinatesOfTheCell_ShouldReturnSouthWestCell()
         {
             var cell = new Cell(1, 1);
             var southWestCell = CellContainer.GetSouthWestCell(cell);
@@ -113,7 +113,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnNullSouthWestCell()
+        public void GetSouthWestCell_CoordinatesOfTheCell_ShouldReturnNullSouthWestCell()
         {
             var cell = new Cell(0, 0);
             var southWestCell = CellContainer.GetSouthWestCell(cell);
@@ -122,7 +122,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnSouthEastCell()
+        public void GetSouthEastCell_CoordinatesOfTheCell_ShouldReturnSouthEastCell()
         {
             var cell = new Cell(1, 1);
             var southEastCell = CellContainer.GetSouthEastCell(cell);
@@ -131,7 +131,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnNullSouthEastCell()
+        public void GetSouthEastCell_CoordinatesOfTheCell_ShouldReturnNullSouthEastCell()
         {
             var cell = new Cell(24, 69);
             var southEastCell = CellContainer.GetSouthEastCell(cell);
@@ -141,7 +141,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnEastCell()
+        public void GetEastCell_CoordinatesOfTheCell_ShouldReturnEastCell()
         {
             var cell = new Cell(1, 1);
             var eastCell = CellContainer.GetEastCell(cell);
@@ -150,7 +150,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnNullEastCell()
+        public void GetEastCell_CoordinatesOfTheCell_ShouldReturnNullEastCell()
         {
             var cell = new Cell(1, 69);
             var eastCell = CellContainer.GetEastCell(cell);
@@ -160,7 +160,7 @@ namespace UnitTests
 
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnWestCell()
+        public void GetWestCell_CoordinatesOfTheCell_ShouldReturnWestCell()
         {
             var cell = new Cell(1, 1);
             var westCell = CellContainer.GetWestCell(cell);
@@ -169,7 +169,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Get_Coordinates_ShouldReturnNullWestCell()
+        public void GetWestCell_CoordinatesOfTheCell_ShouldReturnNullWestCell()
         {
             var cell = new Cell(1, 0);
             var westCell = CellContainer.GetWestCell(cell);
